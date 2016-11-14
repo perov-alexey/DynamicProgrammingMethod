@@ -91,4 +91,13 @@ public class Field implements Serializable{
         }
         return grade;
     }
+
+    public boolean hasOverloadedChannel() {
+        for (Connector connector : connectors) {
+            if (connector.getTopChannel().isOverloaded() || connector.getBottomChannel().isOverloaded()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
